@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import React, { useState } from 'react';
+import QuoteCard from './components/Quote'
+import SuccessButton from './components/Success';
+import Nav from './components/Nav';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [quote, setQuote] = useState("The only way to do great work is to love what you do.");
+  
+  const successButton = async () => {
+    try {
+       const response = await fetch('https://api.quotable.io/random?query=success');
+       if (!response.ok) {
+         throw new Error('Network response was not ok');
+       }
+       const data = await response.json();
+       setQuote(data.content); // The Quotable API returns the quote in the 'content' property
+    } catch (error) {
+       console.error('Failed to fetch quote:', error);
+    }
+   };
+  
+
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Nav/>
+      <QuoteCard quote={quote}/>
+      <SuccessButton onButtonClick={successButton}/>
+       
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
