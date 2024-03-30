@@ -26,6 +26,47 @@ function App() {
   
 
 
+   const loveButton = async () => {
+    try {
+       const response = await fetch('https://api.quotable.io/random?query=love');
+       if (!response.ok) {
+         throw new Error('Network response was not ok');
+       }
+       const data = await response.json();
+       setQuote(data.content); // The Quotable API returns the quote in the 'content' property
+    } catch (error) {
+       console.error('Failed to fetch quote:', error);
+    }
+   };
+
+
+   const happinessButton = async () => {
+    try {
+       const response = await fetch('https://api.quotable.io/random?query=happiness');
+       if (!response.ok) {
+         throw new Error('Network response was not ok');
+       }
+       const data = await response.json();
+       setQuote(data.content); // The Quotable API returns the quote in the 'content' property
+    } catch (error) {
+       console.error('Failed to fetch quote:', error);
+    }
+   };
+
+
+   const inspirationButton = async () => {
+    try {
+       const response = await fetch('https://api.quotable.io/random?query=inspiration');
+       if (!response.ok) {
+         throw new Error('Network response was not ok');
+       }
+       const data = await response.json();
+       setQuote(data.content); // The Quotable API returns the quote in the 'content' property
+    } catch (error) {
+       console.error('Failed to fetch quote:', error);
+    }
+   };
+
   return (
     <>
       <div>
@@ -39,15 +80,15 @@ function App() {
         <br></br>
         <br></br>
 
-      <InspirationButton className="mb-3" />
+      <InspirationButton className="mb-3" onButtonClick={inspirationButton} />
       <br></br>
         <br></br>
         </div>
         <div className="col-md-6">
-        <HappinessButton className="mb-3" />
+        <HappinessButton className="mb-3" onButtonClick={happinessButton}/>
         <br></br>
         <br></br>
-      <Love className="mb-3" />
+      <Love className="mb-3" onButtonClick={loveButton} />
         </div>
       </div>
     </div>
