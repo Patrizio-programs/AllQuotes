@@ -2,7 +2,7 @@
 
 const LoveButton = ({ onButtonClick }) => {
     return (
-       <button onClick={onButtonClick}>Success</button>
+       <button onClick={onButtonClick}>Love</button>
     );
    };
    

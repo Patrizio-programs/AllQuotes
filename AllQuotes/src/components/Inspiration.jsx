@@ -2,7 +2,7 @@
 
 const InspirationButton = ({ onButtonClick }) => {
     return (
-       <button onClick={onButtonClick}>Success</button>
+       <button onClick={onButtonClick}>Inspiration</button>
     );
    };
    

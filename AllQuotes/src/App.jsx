@@ -1,9 +1,12 @@
 
 import './App.css'
-import React, { useState } from 'react';
-import QuoteCard from './components/Quote'
+import { useState } from 'react';
+import QuoteCard from './components/QuoteCard'
 import SuccessButton from './components/Success';
 import Nav from './components/Nav';
+import InspirationButton from './components/Inspiration';
+import HappinessButton from './components/Happiness';
+import Love from './components/Love';
 
 function App() {
   const [quote, setQuote] = useState("The only way to do great work is to love what you do.");
@@ -28,7 +31,30 @@ function App() {
       <div>
       <Nav/>
       <QuoteCard quote={quote}/>
-      <SuccessButton onButtonClick={successButton}/>
+    
+      <div className="container">
+      <div className="row">
+        <div className="col-md-6">
+        <SuccessButton onButtonClick={successButton} className="mb-3" />
+        <br></br>
+        <br></br>
+
+      <InspirationButton className="mb-3" />
+      <br></br>
+        <br></br>
+        </div>
+        <div className="col-md-6">
+        <HappinessButton className="mb-3" />
+        <br></br>
+        <br></br>
+      <Love className="mb-3" />
+        </div>
+      </div>
+    </div>
+
+
+
+    
        
       </div>
       

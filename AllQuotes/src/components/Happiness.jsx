@@ -2,7 +2,7 @@
 
 const HappinessButton = ({ onButtonClick }) => {
     return (
-       <button onClick={onButtonClick}>Success</button>
+       <button onClick={onButtonClick}>Happiness</button>
     );
    };
    
