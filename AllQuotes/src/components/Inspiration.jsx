@@ -2,7 +2,7 @@
 
 const InspirationButton = ({ onButtonClick }) => {
     return (
-       <button onClick={onButtonClick}>Inspiration</button>
+       <button onClick={onButtonClick} style={{ backgroundColor: '#FF9800', color: 'white' }}>Inspiration</button>
     );
    };
    

@@ -2,7 +2,7 @@
 
 const HappinessButton = ({ onButtonClick }) => {
     return (
-       <button onClick={onButtonClick}>Happiness</button>
+       <button onClick={onButtonClick} style={{ backgroundColor: '#FFEB3B', color: 'black' }}>Happiness</button>
     );
    };
    
